@@ -1,13 +1,13 @@
-from typing import Dict, Tuple
+from typing import Dict, Tuple, Union
 
 import torch
 import torch.nn as nn
 from torch import Tensor
-from transformers import BertModel
+from transformers import BertModel, RobertaModel
 
 
 class RecoBERTHead(nn.Module):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
 
     def forward(
@@ -26,18 +26,18 @@ class RecoBERTHead(nn.Module):
 
 
 class TitleDescriptionHead(nn.Module):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
 
         self.cos_sim = nn.CosineSimilarity(dim=-1)
 
-    def forward(self, f_t: Tensor, f_d: Tensor) -> Tensor:
-        cosine = (1.0 + self.cos_sim.forward(f_t, f_d)) / 2.0
+    def forward(self, x1: Tensor, x2: Tensor) -> Tensor:
+        cosine = (1.0 + self.cos_sim.forward(x1, x2)) / 2.0
         return cosine
 
 
 class LanguageModelHead(nn.Module):
-    def __init__(self, input_dim, vocab_size):
+    def __init__(self, input_dim, vocab_size) -> None:
         super().__init__()
 
         self.classifier = nn.Linear(in_features=input_dim, out_features=vocab_size)
@@ -47,7 +47,7 @@ class LanguageModelHead(nn.Module):
 
 
 class RecoBERT(nn.Module):
-    def __init__(self, bert: BertModel, vocab_size: int):
+    def __init__(self, bert: Union[BertModel, RobertaModel], vocab_size: int) -> None:
         super().__init__()
 
         self.bert = bert
