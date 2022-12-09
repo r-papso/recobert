@@ -20,7 +20,7 @@ class RecoBERTHead(nn.Module):
         d = x * descr_mask.unsqueeze(-1)
 
         f_t = torch.sum(t, dim=1) / torch.sum(title_mask, dim=-1).unsqueeze(-1)
-        f_d = torch.sum(d, dim=1) / torch.sum(title_mask, dim=-1).unsqueeze(-1)
+        f_d = torch.sum(d, dim=1) / torch.sum(descr_mask, dim=-1).unsqueeze(-1)
 
         return f_t, f_d
 

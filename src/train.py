@@ -24,7 +24,7 @@ def evaluate(model: RecoBERT, val_loader: DataLoader, device: str) -> float:
 
             y = model.forward(
                 input_ids=in_ids,
-                attention_mask=attn_mask,
+                attn_mask=attn_mask,
                 special_tokens=special_tokens,
                 token_types=token_types,
             )
