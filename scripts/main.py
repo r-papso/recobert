@@ -24,7 +24,8 @@ if __name__ == "__main__":
     l2_reg = 0.0
     beta1 = 0.9
     beta2 = 0.999
-    epochs = 50
+    epochs = 100
+    early_stop = 20
     batch_size = 32
     workers = 8
 
@@ -80,5 +81,5 @@ if __name__ == "__main__":
         epochs=epochs,
         device=device,
         checkpoint="./checkpoint",
-        early_stop=5,
+        early_stop=early_stop,
     )
