@@ -7,7 +7,7 @@ from torch.optim import Optimizer
 from torch.utils.data import DataLoader
 
 from .model import RecoBERT
-from .utils import train_batch_to
+from .utils import batch_to
 
 
 def evaluate(model: RecoBERT, val_loader: DataLoader, device: str) -> float:
@@ -18,7 +18,7 @@ def evaluate(model: RecoBERT, val_loader: DataLoader, device: str) -> float:
 
     with torch.no_grad():
         for batch in val_loader:
-            in_ids, attn_mask, nsp_label, mlm_label, special_tokens, token_types = train_batch_to(
+            in_ids, attn_mask, nsp_label, mlm_label, special_tokens, token_types = batch_to(
                 batch, device
             )
 
@@ -58,7 +58,7 @@ def train(
         sum_loss = 0
 
         for batch in train_loader:
-            in_ids, attn_mask, nsp_label, mlm_label, special_tokens, token_types = train_batch_to(
+            in_ids, attn_mask, nsp_label, mlm_label, special_tokens, token_types = batch_to(
                 batch, device
             )
 
