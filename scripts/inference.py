@@ -19,7 +19,7 @@ parser.add_argument("dataset", type=str)
 def eval_wines():
     # BERT (https://arxiv.org/pdf/1810.04805.pdf)
     tokenizer = BertTokenizer.from_pretrained("bert-base-cased")
-    df = pd.read_csv("../data/wines_seeds_complete.csv", index_col=0)
+    df = pd.read_csv("../data/wines_annotated.csv", index_col=0)
 
     td_head = TitleDescriptionHead()
     model = torch.load("../scripts/checkpoint/097_0.7962.pth")

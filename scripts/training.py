@@ -89,7 +89,7 @@ if __name__ == "__main__":
         collate_fn = CollatorWrapper(tokenize_fn, collator)
 
         # Load dataset
-        df = pd.read_csv("../data/winemag-data-130k-v3.csv", index_col=0)
+        df = pd.read_csv("../data/wines.csv", index_col=0)
         dataset = RecoDataset(df=df, swap_prob=0.5)
 
         # Dataset split
