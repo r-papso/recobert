@@ -1,6 +1,6 @@
 # RecoBERT
 
-This repository contains our implementation of the paper RecoBERT: A Catalog Language Model for Text-Based Recommendations.
+This repository contains implementation of the paper RecoBERT: A Catalog Language Model for Text-Based Recommendations [1].
 
 The paper can be found here: https://arxiv.org/pdf/2009.13292.pdf
 
@@ -25,3 +25,7 @@ To train and/or evaluate the RecoBERT implementation:
 2. Save the dataset to the ./data folder within this repository.
 3. Run training by using command: ```python ./scripts/training.py wines```.
 4. After training, run inference by using command: ```python ./scripts/inference.py wines```.
+
+## References
+
+[1] I. Malkiel, O. Barkan, A. Caciularu, N. Razin, O. Katz and N. Koenigstein, "RecoBERT: A Catalog Language Model for Text-Based Recommendations," 2020.
