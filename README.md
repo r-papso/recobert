@@ -1,6 +1,6 @@
 # RecoBERT
 
-This repository contains implementation of the paper RecoBERT: A Catalog Language Model for Text-Based Recommendations [1].
+This repository contains implementation of the paper RecoBERT: A Catalog Language Model for Text-Based Recommendations [1]. This is NOT the original implenetation of the paper.
 
 The paper can be found here: https://arxiv.org/pdf/2009.13292.pdf
 
